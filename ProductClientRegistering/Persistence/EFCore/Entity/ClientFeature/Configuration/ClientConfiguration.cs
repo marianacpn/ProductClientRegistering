@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Persistence.EFCore.ClientFeature.Configuration
+namespace Persistence.EFCore.Entity.ClientFeature.Configuration
 {
     public class ClientConfiguration : IEntityTypeConfiguration<Client>
     {
