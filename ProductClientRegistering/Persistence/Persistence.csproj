@@ -5,7 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="EFCore\Repository\" />
+    <Compile Remove="EFCore\Repository\**" />
+    <EmbeddedResource Remove="EFCore\Repository\**" />
+    <None Remove="EFCore\Repository\**" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Options;
-using Persistence.EFCore.ClientFeature.Configuration;
-using Persistence.EFCore.ProductFeature.Configuration;
+using Persistence.EFCore.Entity.ClientFeature.Configuration;
+using Persistence.EFCore.Entity.ProductFeature.Configuration;
 using Shared.Config;
 using System;
 using System.Linq;

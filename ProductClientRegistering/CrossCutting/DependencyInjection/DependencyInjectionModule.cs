@@ -1,14 +1,17 @@
 ﻿using AutoMapper;
+using Domain.Repository.Interface.Entity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence.EFCore;
+using Persistence.EFCore.Entity.ClientFeature;
+using Persistence.EFCore.Entity.ProductFeature;
 using Shared.Config;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
+using Application.App.Interface;
+using Application.App.Entity;
 
 namespace CrossCutting.DependencyInjection
 {
@@ -41,6 +44,12 @@ namespace CrossCutting.DependencyInjection
             serviceCollection.AddOptions();
 
             serviceCollection.Configure<DbConnectionConfig>(options => configuration.GetSection("DbConnection").Bind(options));
+
+            serviceCollection.AddScoped<IAppProduct, AppProduct>();
+            serviceCollection.AddScoped<IAppClient, AppClient>();
+
+            serviceCollection.AddScoped<IProductRepository, ProductRepository>();
+            serviceCollection.AddScoped<IClientRepository, ClientRepository>();
 
             Type[] typelist = GetTypesInNamespace(Assembly.GetExecutingAssembly(), "CrossCutting.Mapper");
 
