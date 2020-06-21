@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Options;
+using Persistence.EFCore.ClientFeature.Configuration;
+using Persistence.EFCore.ProductFeature.Configuration;
 using Shared.Config;
 using System;
 using System.Linq;
@@ -37,6 +39,8 @@ namespace Persistence.EFCore
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration(new ClientConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

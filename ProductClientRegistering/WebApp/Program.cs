@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using System;
-using Shared.ClassExtensions;
 
 namespace WebApp
 {
@@ -37,8 +36,6 @@ namespace WebApp
                         options.Limits.MaxRequestBodySize = 1073741274;
                         options.Limits.KeepAliveTimeout = TimeSpan.FromMinutes(120);
                         options.Limits.RequestHeadersTimeout = TimeSpan.FromMinutes(120);
-                        options.ListenAnyIP(context.Configuration.GetSection("AppPort").Value.DynamicConvert<int>());
-
                     });
                     webBuilder.UseIIS();
                     webBuilder.UseIISIntegration();

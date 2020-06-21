@@ -24,6 +24,12 @@ namespace CrossCutting.DependencyInjection
                                          .Build();
         }
 
+        public static void ConfigureServices(IServiceCollection servicesCollection, IConfiguration configuration)
+        {
+            ConfigureDbConnection(servicesCollection, configuration);
+            ConfigureClassesDI(servicesCollection, configuration);
+        }
+
         public static void ConfigureWeb(IServiceCollection serviceCollection, IConfiguration configuration)
         {
             ConfigureDbConnection(serviceCollection, configuration);
