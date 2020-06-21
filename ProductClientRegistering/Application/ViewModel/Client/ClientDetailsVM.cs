@@ -1,15 +1,9 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace Application.ViewModel.Client
 {
-    public class ClientListVM
+    public class ClientDetailsVM
     {
-        public ClientListVM()
-        {
-            Clients = new List<ClientListVM>();
-        }
-
         public int ClientId { get; set; }
 
         [DisplayName("Cliente")]
@@ -21,6 +15,7 @@ namespace Application.ViewModel.Client
         [DisplayName("Cadastrado em")]
         public string DataCadastro { get; set; }
 
-        public IEnumerable<ClientListVM> Clients { get; set; }
+        [DisplayName("Status")]
+        public string Status { get; set; }
     }
 }
