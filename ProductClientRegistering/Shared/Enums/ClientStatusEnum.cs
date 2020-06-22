@@ -14,6 +14,9 @@ namespace Shared.Enums
         platinum = 3,
 
         [Display(Name = "Diamante")]
-        diamond = 4
+        diamond = 4,
+
+        [Display(Name = "Bronze")]
+        bronze = 5
     }
 }

@@ -1,0 +1,51 @@
+﻿@model Application.ViewModel.Product.ProductListVM
+
+@{
+    ViewData["Title"] = "Produtos";
+}
+
+<h1>Produtos</h1>
+
+<p>
+    <a asp-action="Create">Criar Novo Produto</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th hidden>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Products) {
+        <tr>
+            <td hidden>
+                @Html.DisplayFor(modelItem => item.ProductId)
+            </td>
+            <th>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientName)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { productId = item.ProductId, productName = item.Nome })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -12,7 +12,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th hiddens
+            <th hidden>
                 @Html.DisplayNameFor(model => model.ClientId)
             </th>
             <th>
@@ -23,9 +23,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.DataCadastro)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
             </th>
             <th></th>
         </tr>
@@ -46,12 +43,8 @@
                 @Html.DisplayFor(modelItem => item.DataCadastro)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.ClientId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.ClientId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.ClientId })
+                @Html.ActionLink("Detalhar", "Details", new { clientId = item.ClientId }) |
+                @Html.ActionLink("Deletar", "Delete", new { clientId = item.ClientId, clientname = item.NomeSobrenome })
             </td>
         </tr>
 }

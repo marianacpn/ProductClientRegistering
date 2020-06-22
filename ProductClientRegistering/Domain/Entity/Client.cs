@@ -8,13 +8,14 @@ namespace Domain.Entity
     [Serializable]
     public class Client : Base
     {
-        public Client(string nome, string sobrenome, string email, DateTime dataCadastro, bool ativo)
+        public Client(string nome, string sobrenome, string email, DateTime dataCadastro, bool ativo, int status)
         {
             Nome = nome;
             Sobrenome = sobrenome;
             Email = email;
             DataCadastro = dataCadastro;
             Ativo = ativo;
+            Status = status;
             
             _products = new List<Product>();
         }
@@ -30,6 +31,8 @@ namespace Domain.Entity
 
         public string Email { get; private set; }
 
+      
+
         public DateTime DataCadastro { get; private set; }
 
         public bool Ativo { get; private set; }
@@ -40,5 +43,15 @@ namespace Domain.Entity
         private readonly List<Product> _products;
 
         public ICollection<Product> Products => _products;
+
+        public void ChangeActive(bool active)
+        {
+            Ativo = active;
+        }
+
+        public void ChangeClientStatus(int status)
+        {
+            Status = status;
+        }
     }
 }

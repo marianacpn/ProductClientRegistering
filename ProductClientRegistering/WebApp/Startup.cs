@@ -1,10 +1,13 @@
+using Application.App.Interface;
 using CrossCutting.DependencyInjection;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Reflection;
 
 namespace WebApp
 {
@@ -21,7 +24,11 @@ namespace WebApp
         public void ConfigureServices(IServiceCollection services)
         {
             DependencyInjectionModule.ConfigureWeb(services, Configuration);
-            services.AddControllersWithViews();
+            services.AddControllersWithViews()
+                .AddFluentValidation(fv =>
+                {
+                    fv.RegisterValidatorsFromAssemblyContaining<IAppBase>();
+                });
 
             services.AddHttpContextAccessor();
             services.AddSession();
