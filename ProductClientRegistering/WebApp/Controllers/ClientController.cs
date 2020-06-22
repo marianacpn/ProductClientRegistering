@@ -78,14 +78,14 @@ namespace WebApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult DeletePost(ClientDeleteVM clientDeleteVM)
+        public IActionResult DeletePost(int clientId)
         {
             try
             {
                 if (!ModelState.IsValid)
                     return RedirectToAction("Index", "Client").WithDangerMessage("Ocorreu um erro ao deletar cliente");
 
-                _appClient.DeleteClientById(clientDeleteVM.ClientId);
+                _appClient.DeleteClientById(clientId);
 
                 return RedirectToAction("Index","Client").WithSuccessMessage("Cliente deletado com sucesso");
             }

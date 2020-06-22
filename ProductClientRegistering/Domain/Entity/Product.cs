@@ -28,5 +28,11 @@ namespace Domain.Entity
         public int ClientId { get; private set; }
 
         public Client Client { get; private set; }
+
+
+        public void ChangeDisponivel(bool disponivel)
+        {
+            Disponivel = disponivel;
+        }
     }
 }

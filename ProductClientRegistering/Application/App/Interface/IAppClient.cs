@@ -1,4 +1,5 @@
-﻿using Application.ViewModel.Client;
+﻿using Application.ViewModel;
+using Application.ViewModel.Client;
 using System.Collections.Generic;
 
 namespace Application.App.Interface
@@ -9,5 +10,6 @@ namespace Application.App.Interface
         void CreateClient(ClientCreateVM clientVM);
         void DeleteClientById(int clientId);
         ClientDetailsVM GetClientDetailsById(int clientId);
+        IEnumerable<KeyValuePairVM> GetAllActiveClients();
     }
 }

@@ -17,6 +17,12 @@ namespace Persistence.EFCore.Entity.ClientFeature
             return ExecuteQueryToList(where: e => e.Ativo == true);
         }
 
+        public Client GetByClientIdWithTracking(int clientId)
+        {
+            return ExecuteQuery(where: e => e.Id == clientId,
+                               tracking: true);
+        }
+
         public Client GetClientAndProductsById(int clientId)
         {
             return ExecuteQuery(where: e => e.Id == clientId);
@@ -27,9 +33,17 @@ namespace Persistence.EFCore.Entity.ClientFeature
             return ExecuteQuery(where: e => e.Id == clientId);
         }
 
-        public Client GetUnactiveClientByEmail(string email)
+        public Client GetClientToValidateById(int clientId)
         {
-            return ExecuteQuery(where: e => e.Ativo == false && e.Email == email);
+            return ExecuteQuery(where: e => e.Id == clientId, 
+                                include: e => e.Include(c => c.Products),
+                                tracking: true);
+        }
+
+        public Client GetUnactiveClientByEmailWithTracking(string email)
+        {
+            return ExecuteQuery(where: e => e.Ativo == false && e.Email == email,
+                                tracking: true);
         }
     }
 }

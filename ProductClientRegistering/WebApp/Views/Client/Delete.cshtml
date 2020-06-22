@@ -20,6 +20,8 @@
     </dl>
     
     <form asp-action="DeletePost">
+        @Html.HiddenFor(e => e.ClientId)
+
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Voltar para Clientes</a>
     </form>

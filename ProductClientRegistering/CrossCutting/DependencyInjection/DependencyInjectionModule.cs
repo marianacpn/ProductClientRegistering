@@ -12,6 +12,7 @@ using System.Linq;
 using System.Reflection;
 using Application.App.Interface;
 using Application.App.Entity;
+using Application.App.Validation;
 
 namespace CrossCutting.DependencyInjection
 {
@@ -49,7 +50,10 @@ namespace CrossCutting.DependencyInjection
             serviceCollection.AddScoped<IAppClient, AppClient>();
 
             serviceCollection.AddScoped<IProductRepository, ProductRepository>();
+           
             serviceCollection.AddScoped<IClientRepository, ClientRepository>();
+
+            serviceCollection.AddScoped<IClientValidation, ClientValidation>();
 
             Type[] typelist = GetTypesInNamespace(Assembly.GetExecutingAssembly(), "CrossCutting.Mapper");
 

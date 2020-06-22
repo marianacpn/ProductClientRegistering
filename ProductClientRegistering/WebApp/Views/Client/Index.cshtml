@@ -43,7 +43,7 @@
                 @Html.DisplayFor(modelItem => item.DataCadastro)
             </td>
             <td>
-                @Html.ActionLink("Detalhar", "Details", new { id=item.ClientId }) |
+                @Html.ActionLink("Detalhar", "Details", new { clientId = item.ClientId }) |
                 @Html.ActionLink("Deletar", "Delete", new { clientId = item.ClientId, clientname = item.NomeSobrenome })
             </td>
         </tr>
